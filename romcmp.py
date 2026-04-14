@@ -16,8 +16,14 @@ if len(bufold) != len(bufnew):
     print("size of old rom and new rom do not match")
     print("old:",len(bufold))
     print("new:",len(bufnew))
+
 iterate = 0
-while iterate < len(bufold):
+if len(bufold) < len(bufnew):
+    smallestbuffer = len(bufold)
+else:
+    smallestbuffer = len(bufnew)
+while iterate < smallestbuffer:
     if bufold[iterate] != bufnew[iterate]:
         print("byte",hex(iterate),"does not match! old =",hex(bufold[iterate]),"new =",hex(bufnew[iterate]))
     iterate += 1
+exit()
